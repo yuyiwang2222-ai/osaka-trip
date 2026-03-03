@@ -1,0 +1,2026 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 大阪六天五夜行程</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Serif TC', 'Microsoft JhengHei', serif;
+      background: #F5F0E6;
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(180, 196, 209, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(197, 209, 197, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(212, 181, 181, 0.1) 0%, transparent 70%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    header {
+      text-align: center;
+      color: #5A5A5A;
+      padding: 40px 20px;
+    }
+    
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: #6B5B5B;
+      letter-spacing: 3px;
+    }
+    
+    header p {
+      font-size: 1.2em;
+      color: #8B7B7B;
+    }
+    
+    .info-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .info-card {
+      background: #FDFCFA;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(107, 91, 91, 0.08);
+      border: 1px dashed #D4C5C5;
+      transition: transform 0.3s ease;
+    }
+    
+    .info-card:hover {
+      transform: translateY(-3px);
+    }
+    
+    .info-card .icon {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    
+    .info-card .label {
+      color: #9B8B8B;
+      font-size: 0.9em;
+    }
+    
+    .info-card .value {
+      color: #5A5A5A;
+      font-size: 1.2em;
+      font-weight: 600;
+      margin-top: 5px;
+    }
+    
+    .day-card {
+      background: #FDFCFA;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(107, 91, 91, 0.08);
+      border: 1px solid #E8E0D8;
+    }
+    
+    .day-header {
+      padding: 20px 25px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      position: relative;
+    }
+    
+    .day-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      right: 20px;
+      height: 1px;
+      background: repeating-linear-gradient(90deg, #C5B5B5 0px, #C5B5B5 4px, transparent 4px, transparent 8px);
+    }
+    
+    /* 莫蘭迪色系 - 柔和低飽和度 */
+    .day-1 .day-header { background: linear-gradient(135deg, #D4B5B5 0%, #C9A8A8 100%); color: #5A4545; }
+    .day-2 .day-header { background: linear-gradient(135deg, #B4C4D1 0%, #A3B5C4 100%); color: #455560; }
+    .day-3 .day-header { background: linear-gradient(135deg, #C5D1C5 0%, #B4C4B4 100%); color: #4A5A4A; }
+    .day-4 .day-header { background: linear-gradient(135deg, #E8D5C5 0%, #DBC8B8 100%); color: #5A4A3A; }
+    .day-5 .day-header { background: linear-gradient(135deg, #C5BFCC 0%, #B8B0C0 100%); color: #4A4550; }
+    .day-6 .day-header { background: linear-gradient(135deg, #D1C5B5 0%, #C4B8A8 100%); color: #504A40; }
+    
+    .day-number {
+      background: rgba(255,255,255,0.5);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      font-weight: 600;
+      border: 2px dashed rgba(255,255,255,0.6);
+    }
+    
+    .day-info h2 {
+      font-size: 1.3em;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    
+    .day-info .date {
+      opacity: 0.85;
+      font-size: 0.95em;
+    }
+    
+    .day-content {
+      padding: 25px;
+      background: #FDFCFA;
+    }
+    
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: repeating-linear-gradient(180deg, #C5B5B5 0px, #C5B5B5 4px, transparent 4px, transparent 8px);
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -22px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background: #B4C4D1;
+      border-radius: 50%;
+      border: 2px solid #FDFCFA;
+      box-shadow: 0 0 0 2px #B4C4D1;
+    }
+    
+    .timeline-time {
+      color: #8B9DAB;
+      font-weight: 600;
+      font-size: 0.9em;
+      margin-bottom: 5px;
+    }
+    
+    .timeline-title {
+      font-weight: 600;
+      color: #5A5A5A;
+      margin-bottom: 5px;
+    }
+    
+    .timeline-desc {
+      color: #8B8B8B;
+      font-size: 0.9em;
+      line-height: 1.6;
+    }
+    
+    .group-tag {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      border: 1px dashed;
+    }
+    
+    .group-a {
+      background: #F5EDE5;
+      color: #8B7355;
+      border-color: #D4C4B4;
+    }
+    
+    .group-b {
+      background: #E8F0F5;
+      color: #5B7585;
+      border-color: #B4C4D1;
+    }
+    
+    .highlight-box {
+      background: #FAF8F5;
+      border-left: 3px solid #B4C4D1;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 0 10px 10px 0;
+      border: 1px dashed #E0D8D0;
+      border-left: 3px solid #B4C4D1;
+    }
+    
+    .highlight-box h4 {
+      color: #6B7B8B;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    
+    .cost-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    
+    .cost-table th, .cost-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px dashed #E0D8D0;
+    }
+    
+    .cost-table th {
+      background: #FAF8F5;
+      color: #5A5A5A;
+      font-weight: 600;
+    }
+    
+    .cost-table tr:hover {
+      background: #FAF8F5;
+    }
+    
+    .total-row {
+      background: linear-gradient(135deg, #B4C4D1 0%, #A3B5C4 100%);
+      color: #3A4550;
+    }
+    
+    .total-row td {
+      font-weight: 600;
+      border: none;
+    }
+    
+    .tips-section {
+      background: #FDFCFA;
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(107, 91, 91, 0.08);
+      border: 1px solid #E8E0D8;
+    }
+    
+    .tips-section h3 {
+      color: #6B7B8B;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #D4C5C5;
+    }
+    
+    .tip-item {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      padding: 15px;
+      background: #FAF8F5;
+      border-radius: 10px;
+      border: 1px dashed #E8E0D8;
+    }
+    
+    .tip-icon {
+      font-size: 1.5em;
+    }
+    
+    .tip-content h4 {
+      color: #5A5A5A;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    
+    .tip-content p {
+      color: #8B8B8B;
+      font-size: 0.9em;
+      line-height: 1.6;
+    }
+    
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .member-card {
+      background: #FAF8F5;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      border: 1px dashed #E0D8D0;
+    }
+    
+    .member-card .age {
+      font-size: 0.85em;
+      color: #8B8B8B;
+    }
+    
+    footer {
+      text-align: center;
+      color: #8B8B8B;
+      padding: 30px;
+    }
+    
+    /* 連結樣式 */
+    a {
+      color: #8B9DAB;
+      text-decoration: none;
+      border-bottom: 1px dashed #B4C4D1;
+      transition: color 0.3s ease;
+    }
+    
+    a:hover {
+      color: #6B7B8B;
+    }
+    
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+      
+      .day-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .cost-table {
+        font-size: 0.85em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🌸 2026 大阪六天五夜</h1>
+      <p>3月17日 (二) ~ 3月22日 (日) ✈️ 櫻花季自由行</p>
+    </header>
+    
+    <!-- 行程總覽圖 -->
+    <div class="cover-image" style="margin-bottom: 30px; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(107, 91, 91, 0.12); border: 1px dashed #D4C5C5;">
+      <img src="大阪自由行.png" alt="2026 大阪櫻花季 9人團 6天5夜 完整行程攻略" style="width: 100%; display: block;">
+    </div>
+    
+    <!-- 基本資訊 -->
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="icon">👥</div>
+        <div class="label">旅遊人數</div>
+        <div class="value">9 人</div>
+      </div>
+      <div class="info-card">
+        <div class="icon">🏨</div>
+        <div class="label">住宿飯店</div>
+        <div class="value"><a href="https://www.tokyuhotels.co.jp/osaka-e/index.html" target="_blank" style="color: #8B9DAB; text-decoration: none; border-bottom: 1px dashed #B4C4D1;">大阪東急卓越</a></div>
+      </div>
+      <div class="info-card">
+        <div class="icon">✈️</div>
+        <div class="label">航空公司</div>
+        <div class="value">樂桃航空</div>
+      </div>
+      <div class="info-card">
+        <div class="icon">💰</div>
+        <div class="label">每人費用 (不含餐食)</div>
+        <div class="value" style="font-size: 0.85em; line-height: 1.6;">
+          <div>🎢 去環球：¥33,032</div>
+          <div>🍵 不去環球：¥30,110</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 機票資訊 -->
+    <div class="tips-section">
+      <h3>✈️ 機票資訊</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 15px;">
+        <div style="background: linear-gradient(135deg, #B4C4D1 0%, #A3B5C4 100%); color: #3A4550; padding: 20px; border-radius: 15px; border: 1px dashed #9DAFBD;">
+          <div style="font-size: 0.9em; opacity: 0.85; margin-bottom: 5px;">🛫 去程</div>
+          <div style="font-size: 1.3em; font-weight: 600; margin-bottom: 10px;">台北 → 大阪</div>
+          <div style="background: rgba(255,255,255,0.35); padding: 12px; border-radius: 10px; margin-bottom: 10px;">
+            <div style="font-weight: 600;">樂桃航空 MM024</div>
+            <div style="font-size: 0.9em;">空中巴士 A320-212 | 經濟艙</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-size: 1.5em; font-weight: bold;">09:40</div>
+              <div style="font-size: 0.85em;">TPE 桃園 T1</div>
+            </div>
+            <div style="font-size: 1.5em;">✈️</div>
+            <div style="text-align: right;">
+              <div style="font-size: 1.5em; font-weight: bold;">13:10</div>
+              <div style="font-size: 0.85em;">KIX 關西 T2</div>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 10px; font-size: 0.85em; opacity: 0.8;">2026年3月17日 (二)</div>
+          <div style="background: rgba(255,255,255,0.15); padding: 10px; border-radius: 8px; margin-top: 10px;">
+            <div style="font-size: 0.8em; opacity: 0.9; margin-bottom: 5px;">💺 座位</div>
+            <div style="font-size: 0.9em;"><strong>7排</strong> A B C D E F</div>
+            <div style="font-size: 0.9em;"><strong>8排</strong> D E F</div>
+          </div>
+        </div>
+        <div style="background: linear-gradient(135deg, #D4B5B5 0%, #C9A8A8 100%); color: #4A3A3A; padding: 20px; border-radius: 15px; border: 1px dashed #C5A5A5;">
+          <div style="font-size: 0.9em; opacity: 0.85; margin-bottom: 5px;">🛬 回程</div>
+          <div style="font-size: 1.3em; font-weight: 600; margin-bottom: 10px;">大阪 → 台北</div>
+          <div style="background: rgba(255,255,255,0.35); padding: 12px; border-radius: 10px; margin-bottom: 10px;">
+            <div style="font-weight: 600;">樂桃航空 MM027</div>
+            <div style="font-size: 0.9em;">空中巴士 A320-212 | 經濟艙</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-size: 1.5em; font-weight: bold;">15:25</div>
+              <div style="font-size: 0.85em;">KIX 關西 T2</div>
+            </div>
+            <div style="font-size: 1.5em;">✈️</div>
+            <div style="text-align: right;">
+              <div style="font-size: 1.5em; font-weight: bold;">17:55</div>
+              <div style="font-size: 0.85em;">TPE 桃園 T1</div>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 10px; font-size: 0.85em; opacity: 0.8;">2026年3月22日 (日)</div>
+          <div style="background: rgba(255,255,255,0.15); padding: 10px; border-radius: 8px; margin-top: 10px;">
+            <div style="font-size: 0.8em; opacity: 0.9; margin-bottom: 5px;">💺 座位</div>
+            <div style="font-size: 0.9em;"><strong>7排</strong> A B C D E F</div>
+            <div style="font-size: 0.9em;"><strong>8排</strong> D E F</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 台灣機場接送 -->
+    <div class="tips-section">
+      <h3>🚐 台灣機場接送</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 15px;">
+        <!-- A車 -->
+        <div style="background: #FAF8F5; padding: 20px; border-radius: 15px; border-left: 3px solid #B4C4D1; border: 1px dashed #E0D8D0; border-left: 3px solid #B4C4D1;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <div style="font-size: 1.2em; font-weight: 600; color: #6B7B8B;">🚗 A車 (4人)</div>
+            <div style="background: #B4C4D1; color: #3A4550; padding: 3px 10px; border-radius: 20px; font-size: 0.8em;">許小姐</div>
+          </div>
+          
+          <div style="background: #FDFCFA; padding: 12px; border-radius: 10px; margin-bottom: 10px; border: 1px dashed #E8E0D8;">
+            <div style="font-size: 0.85em; color: #8B8B8B; margin-bottom: 5px;">🛫 送機 3/17 (二)</div>
+            <div style="font-weight: 600; color: #5A5A5A;">04:15 出發</div>
+            <div style="font-size: 0.85em; color: #8B8B8B; margin-top: 8px;">
+              <div>📍 鹿港鎮平和路55號 (2位)</div>
+              <div>📍 和美鎮布西路36號 (1位)</div>
+              <div>📍 和美鎮秀東路12巷23號 (1位)</div>
+            </div>
+            <div style="font-size: 0.85em; color: #6B7B8B; margin-top: 5px;">→ 桃園機場</div>
+          </div>
+          
+          <div style="background: #FDFCFA; padding: 12px; border-radius: 10px; border: 1px dashed #E8E0D8;">
+            <div style="font-size: 0.85em; color: #8B8B8B; margin-bottom: 5px;">🛬 接機 3/22 (日)</div>
+            <div style="font-weight: 600; color: #5A5A5A;">17:55 抵達</div>
+            <div style="font-size: 0.85em; color: #6B7B8B; margin-top: 5px;">桃園機場 →</div>
+            <div style="font-size: 0.85em; color: #8B8B8B; margin-top: 8px;">
+              <div>📍 和美鎮秀東路12巷23號 (1位)</div>
+              <div>📍 和美鎮布西路36號 (1位)</div>
+              <div>📍 鹿港鎮平和路55號 (2位)</div>
+            </div>
+          </div>
+          
+          <div style="margin-top: 12px; font-size: 0.85em; color: #8B8B8B;">
+            📞 0903-957-002 | 🧳 行李 4件
+          </div>
+        </div>
+        
+        <!-- B車 -->
+        <div style="background: #FAF8F5; padding: 20px; border-radius: 15px; border-left: 3px solid #D4B5B5; border: 1px dashed #E0D8D0; border-left: 3px solid #D4B5B5;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <div style="font-size: 1.2em; font-weight: 600; color: #8B6B6B;">🚗 B車 (5人)</div>
+            <div style="background: #D4B5B5; color: #4A3A3A; padding: 3px 10px; border-radius: 20px; font-size: 0.8em;">王先生</div>
+          </div>
+          
+          <div style="background: #FDFCFA; padding: 12px; border-radius: 10px; margin-bottom: 10px; border: 1px dashed #E8E0D8;">
+            <div style="font-size: 0.85em; color: #8B8B8B; margin-bottom: 5px;">🛫 送機 3/17 (二)</div>
+            <div style="font-weight: 600; color: #5A5A5A;">04:40 出發</div>
+            <div style="font-size: 0.85em; color: #8B8B8B; margin-top: 8px;">
+              <div>📍 彰化市彰馬路189巷19弄17號</div>
+            </div>
+            <div style="font-size: 0.85em; color: #8B6B6B; margin-top: 5px;">→ 桃園機場</div>
+          </div>
+          
+          <div style="background: #FDFCFA; padding: 12px; border-radius: 10px; border: 1px dashed #E8E0D8;">
+            <div style="font-size: 0.85em; color: #8B8B8B; margin-bottom: 5px;">🛬 接機 3/22 (日)</div>
+            <div style="font-weight: 600; color: #5A5A5A;">17:55 抵達</div>
+            <div style="font-size: 0.85em; color: #8B6B6B; margin-top: 5px;">桃園機場 →</div>
+            <div style="font-size: 0.85em; color: #8B8B8B; margin-top: 8px;">
+              <div>📍 彰化市彰馬路189巷19弄17號</div>
+            </div>
+          </div>
+          
+          <div style="margin-top: 12px; font-size: 0.85em; color: #8B8B8B;">
+            📞 0925-026-802 | 🧳 行李 5件
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 入境大阪機場作業 -->
+    <div class="tips-section">
+      <h3>🛬 入境關西機場作業流程</h3>
+      
+      <!-- Visit Japan Web 提醒 -->
+      <div style="background: linear-gradient(135deg, #D4B5B5 0%, #C4A5A5 100%); color: #4A3A3A; padding: 15px 20px; border-radius: 12px; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="font-size: 2em;">📱</div>
+          <div>
+            <div style="font-weight: 600; font-size: 1.1em;">出發前必做：Visit Japan Web</div>
+            <div style="font-size: 0.9em; opacity: 0.9;">請於出發前 2 週內完成線上註冊，可加快入境速度！</div>
+            <div style="font-size: 0.85em; margin-top: 5px;">🔗 <a href="https://www.vjw.digital.go.jp/" target="_blank" style="color: #5A4A4A; text-decoration: underline;">vjw.digital.go.jp</a></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 入境流程步驟 -->
+      <div style="background: #FAF8F5; padding: 20px; border-radius: 12px; border: 1px dashed #D4C5C5; margin-bottom: 20px;">
+        <h4 style="color: #6B5B5B; margin-bottom: 15px;">📋 入境流程（預計 30-50 分鐘）</h4>
+        
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="background: #B4C4D1; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; flex-shrink: 0;">1</div>
+            <div>
+              <div style="font-weight: 600; color: #5A5A5A;">下機後跟著指標走</div>
+              <div style="font-size: 0.9em; color: #8B8B8B;">樂桃在 T2，沿「到着 / Arrival」指標前進</div>
+            </div>
+          </div>
+          
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="background: #B4C4D1; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; flex-shrink: 0;">2</div>
+            <div>
+              <div style="font-weight: 600; color: #5A5A5A;">入境審查（Immigration）</div>
+              <div style="font-size: 0.9em; color: #8B8B8B;">出示護照 + Visit Japan Web QR Code<br>💡 有 VJW 的走「日本人・再入国」旁的快速通道</div>
+            </div>
+          </div>
+          
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="background: #B4C4D1; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; flex-shrink: 0;">3</div>
+            <div>
+              <div style="font-weight: 600; color: #5A5A5A;">提領行李（Baggage Claim）</div>
+              <div style="font-size: 0.9em; color: #8B8B8B;">看螢幕找 MM024 對應的轉盤號碼</div>
+            </div>
+          </div>
+          
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="background: #B4C4D1; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; flex-shrink: 0;">4</div>
+            <div>
+              <div style="font-weight: 600; color: #5A5A5A;">海關檢查（Customs）</div>
+              <div style="font-size: 0.9em; color: #8B8B8B;">出示 VJW 的海關 QR Code（或填寫紙本申報單）<br>💡 無申報物品走綠色通道</div>
+            </div>
+          </div>
+          
+          <div style="display: flex; align-items: flex-start; gap: 12px;">
+            <div style="background: #C5D1C5; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; flex-shrink: 0;">5</div>
+            <div>
+              <div style="font-weight: 600; color: #5A5A5A;">抵達入境大廳 ✅</div>
+              <div style="font-size: 0.9em; color: #8B8B8B;">找 KKday 專車司機（會舉牌）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- T2 注意事項 -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+        <div style="background: #FDFCFA; padding: 15px; border-radius: 10px; border: 1px dashed #E0D8D0;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 10px;">⚠️ T2 航廈注意</div>
+          <div style="font-size: 0.9em; color: #5A5A5A;">
+            <p style="margin-bottom: 8px;">• 樂桃航空專用第二航廈 (T2)</p>
+            <p style="margin-bottom: 8px;">• T2 較小，設施簡單但動線短</p>
+            <p style="margin-bottom: 0;">• 若要去 T1 買東西需搭接駁巴士</p>
+          </div>
+        </div>
+        
+        <div style="background: #FDFCFA; padding: 15px; border-radius: 10px; border: 1px dashed #E0D8D0;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 10px;">📶 網路與交通卡</div>
+          <div style="font-size: 0.9em; color: #5A5A5A;">
+            <p style="margin-bottom: 8px;">• E-SIM 建議出發前先裝好啟用</p>
+            <p style="margin-bottom: 8px;">• ICOCA 可在機場便利商店購買</p>
+            <p style="margin-bottom: 0;">• 專車接送不需買車票</p>
+          </div>
+        </div>
+        
+        <div style="background: #FDFCFA; padding: 15px; border-radius: 10px; border: 1px dashed #E0D8D0;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 10px;">🧳 攜帶物品提醒</div>
+          <div style="font-size: 0.9em; color: #5A5A5A;">
+            <p style="margin-bottom: 8px;">• 肉類、水果禁止攜入日本</p>
+            <p style="margin-bottom: 8px;">• 現金超過 100 萬日圓需申報</p>
+            <p style="margin-bottom: 0;">• 香菸限 200 支、酒類限 3 瓶</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Visit Japan Web 填寫項目 -->
+      <div style="background: linear-gradient(135deg, #B4C4D1 0%, #A3B5C4 100%); color: #3A4550; padding: 15px 20px; border-radius: 12px; margin-top: 20px;">
+        <div style="font-weight: 600; margin-bottom: 10px;">📝 Visit Japan Web 需填寫項目</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 0.9em;">
+          <div style="background: rgba(255,255,255,0.3); padding: 10px; border-radius: 8px;">
+            <div style="font-weight: 600;">1️⃣ 入境審查</div>
+            <div style="font-size: 0.85em; opacity: 0.9;">護照資料、航班、住宿地址</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.3); padding: 10px; border-radius: 8px;">
+            <div style="font-weight: 600;">2️⃣ 海關申報</div>
+            <div style="font-size: 0.85em; opacity: 0.9;">攜帶物品申報</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.3); padding: 10px; border-radius: 8px;">
+            <div style="font-weight: 600;">📍 住宿地址</div>
+            <div style="font-size: 0.85em; opacity: 0.9;">大阪東急卓越酒店<br>大阪市中央区久太郎町4-1-15</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 成員組成 -->
+    <div class="tips-section">
+      <h3>👨‍👩‍👧‍👦 團員組成</h3>
+      <div class="member-grid">
+        <div class="member-card">
+          <div class="icon">👴👵</div>
+          <div class="age">70歲以上 × 2</div>
+        </div>
+        <div class="member-card">
+          <div class="icon">👨👩</div>
+          <div class="age">50歲 × 2</div>
+        </div>
+        <div class="member-card">
+          <div class="icon">🧑🧑🧑🧑🧑</div>
+          <div class="age">17-21歲 × 5</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 交通指南 -->
+    <div class="tips-section">
+      <h3>🚇 交通指南</h3>
+      
+      <!-- 飯店位置 -->
+      <div style="background: linear-gradient(135deg, #C5D1C5 0%, #B4C4B4 100%); color: #3A4A3A; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+        <div style="font-size: 1.1em; font-weight: 600; margin-bottom: 10px;">🏨 飯店位置：大阪東急卓越酒店</div>
+        <div style="font-size: 0.95em;">
+          <p style="margin-bottom: 8px;">📍 最近車站：<strong>本町站</strong>（御堂筋線 / 中央線 / 四つ橋線）</p>
+          <p style="margin-bottom: 0;">🚶 從 7 號出口步行約 3 分鐘</p>
+        </div>
+      </div>
+      
+      <!-- 每日交通總覽 -->
+      <div style="background: #FAF8F5; padding: 20px; border-radius: 12px; border: 1px dashed #D4C5C5; margin-bottom: 20px;">
+        <h4 style="color: #6B5B5B; margin-bottom: 15px;">📋 每日交通方式總覽</h4>
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+          <tr style="border-bottom: 1px dashed #E0D8D0;">
+            <td style="padding: 10px 5px; color: #8B7B7B; width: 80px;"><strong>Day 1</strong></td>
+            <td style="padding: 10px 5px;">🚐 機場專車 → 步行或御堂筋線 1 站</td>
+          </tr>
+          <tr style="border-bottom: 1px dashed #E0D8D0;">
+            <td style="padding: 10px 5px; color: #8B7B7B;"><strong>Day 2</strong></td>
+            <td style="padding: 10px 5px;">
+              <span style="background: #f5576c20; color: #d64161; padding: 2px 8px; border-radius: 10px; font-size: 0.85em;">A組</span> 🚐 飯店環球專車<br>
+              <span style="background: #00b4d820; color: #0098b3; padding: 2px 8px; border-radius: 10px; font-size: 0.85em; margin-top: 5px; display: inline-block;">B組</span> 🚃 御堂筋線 → 阪急京都線
+            </td>
+          </tr>
+          <tr style="border-bottom: 1px dashed #E0D8D0;">
+            <td style="padding: 10px 5px; color: #8B7B7B;"><strong>Day 3</strong></td>
+            <td style="padding: 10px 5px;">🚃 御堂筋線 → 阪神電車 + City Loop</td>
+          </tr>
+          <tr style="border-bottom: 1px dashed #E0D8D0;">
+            <td style="padding: 10px 5px; color: #8B7B7B;"><strong>Day 4</strong></td>
+            <td style="padding: 10px 5px;">🚐 京都包車（全天不需搭地鐵）</td>
+          </tr>
+          <tr style="border-bottom: 1px dashed #E0D8D0;">
+            <td style="padding: 10px 5px; color: #8B7B7B;"><strong>Day 5</strong></td>
+            <td style="padding: 10px 5px;">🚃 中央線 + 御堂筋線（大阪週遊券免費）</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 5px; color: #8B7B7B;"><strong>Day 6</strong></td>
+            <td style="padding: 10px 5px;">🚐 機場專車</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 常用路線詳解 -->
+      <h4 style="color: #6B5B5B; margin-bottom: 15px; padding-left: 10px; border-left: 3px solid #B4C4D1;">🗺️ 常用路線詳解</h4>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+        <!-- 心齋橋 -->
+        <div style="background: #FDFCFA; padding: 15px; border-radius: 10px; border: 1px dashed #E0D8D0;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 10px;">🛍️ 飯店 → 心齋橋/道頓堀</div>
+          <div style="font-size: 0.9em; color: #5A5A5A;">
+            <p style="margin-bottom: 5px;"><strong>方法 1：地鐵</strong></p>
+            <p style="margin-bottom: 8px; padding-left: 10px; border-left: 2px solid #D4B5B5;">本町 → <span style="background: #D94A4A; color: white; padding: 1px 6px; border-radius: 3px; font-size: 0.8em;">M</span> 御堂筋線 → 心齋橋<br>🕐 約 2 分 ｜ 💴 ¥190</p>
+            <p style="margin-bottom: 5px;"><strong>方法 2：步行</strong></p>
+            <p style="padding-left: 10px; border-left: 2px solid #C5D1C5;">沿御堂筋大街往南走<br>🕐 約 15 分鐘</p>
+          </div>
+        </div>
+        
+        <!-- 大阪城 -->
+        <div style="background: #FDFCFA; padding: 15px; border-radius: 10px; border: 1px dashed #E0D8D0;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 10px;">🏯 飯店 → 大阪城公園</div>
+          <div style="font-size: 0.9em; color: #5A5A5A;">
+            <p style="padding-left: 10px; border-left: 2px solid #B4C4D1;">本町 → <span style="background: #4CAF50; color: white; padding: 1px 6px; border-radius: 3px; font-size: 0.8em;">C</span> 中央線 → 森ノ宮 或 谷町四丁目<br>🕐 約 6 分 ｜ 💴 ¥240<br><span style="color: #8B8B8B; font-size: 0.85em;">💡 Day 5 用大阪週遊券免費</span></p>
+          </div>
+        </div>
+        
+        <!-- 梅田 -->
+        <div style="background: #FDFCFA; padding: 15px; border-radius: 10px; border: 1px dashed #E0D8D0;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 10px;">🌆 飯店 → 梅田</div>
+          <div style="font-size: 0.9em; color: #5A5A5A;">
+            <p style="padding-left: 10px; border-left: 2px solid #D4B5B5;">本町 → <span style="background: #D94A4A; color: white; padding: 1px 6px; border-radius: 3px; font-size: 0.8em;">M</span> 御堂筋線 → 梅田<br>🕐 約 6 分 ｜ 💴 ¥240<br><span style="color: #8B8B8B; font-size: 0.85em;">💡 Day 5 用大阪週遊券免費</span></p>
+          </div>
+        </div>
+        
+        <!-- 難波/黑門市場 -->
+        <div style="background: #FDFCFA; padding: 15px; border-radius: 10px; border: 1px dashed #E0D8D0;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 10px;">🦀 飯店 → 黑門市場</div>
+          <div style="font-size: 0.9em; color: #5A5A5A;">
+            <p style="padding-left: 10px; border-left: 2px solid #D4B5B5;">本町 → <span style="background: #D94A4A; color: white; padding: 1px 6px; border-radius: 3px; font-size: 0.8em;">M</span> 御堂筋線 → 難波<br>→ 步行 5 分至黑門市場<br>🕐 約 10 分 ｜ 💴 ¥240</p>
+          </div>
+        </div>
+        
+        <!-- 神戶 -->
+        <div style="background: #FDFCFA; padding: 15px; border-radius: 10px; border: 1px dashed #E0D8D0;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 10px;">⚓ 飯店 → 神戶三宮 (Day 3)</div>
+          <div style="font-size: 0.9em; color: #5A5A5A;">
+            <p style="padding-left: 10px; border-left: 2px solid #C5BFCC;">本町 → <span style="background: #D94A4A; color: white; padding: 1px 6px; border-radius: 3px; font-size: 0.8em;">M</span> 御堂筋線 → 難波<br>→ 轉 <span style="background: #F7931E; color: white; padding: 1px 6px; border-radius: 3px; font-size: 0.8em;">阪神</span> 阪神電車 → 神戶三宮<br>🕐 約 50 分 ｜ 💴 ¥680</p>
+          </div>
+        </div>
+        
+        <!-- 京都 B組 -->
+        <div style="background: #FDFCFA; padding: 15px; border-radius: 10px; border: 1px dashed #E0D8D0;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 10px;">🍵 飯店 → 京都河原町 (Day 2 B組)</div>
+          <div style="font-size: 0.9em; color: #5A5A5A;">
+            <p style="padding-left: 10px; border-left: 2px solid #00b4d8;">本町 → <span style="background: #D94A4A; color: white; padding: 1px 6px; border-radius: 3px; font-size: 0.8em;">M</span> 御堂筋線 → 梅田<br>→ 步行至阪急梅田站<br>→ <span style="background: #8B4513; color: white; padding: 1px 6px; border-radius: 3px; font-size: 0.8em;">阪急</span> 京都線特急 → 河原町<br>🕐 約 70 分 ｜ 💴 ¥640</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ICOCA 說明 -->
+      <div style="background: linear-gradient(135deg, #B4C4D1 0%, #A3B5C4 100%); color: #3A4550; padding: 15px 20px; border-radius: 12px; margin-top: 20px; display: flex; align-items: center; gap: 15px;">
+        <div style="font-size: 2em;">💳</div>
+        <div>
+          <div style="font-weight: 600;">ICOCA 交通卡</div>
+          <div style="font-size: 0.9em; opacity: 0.9;">購買 ¥2,000（含押金 ¥500）｜全程通用，刷卡進出站超方便！</div>
+          <div style="font-size: 0.85em; opacity: 0.8; margin-top: 3px;">📍 關西機場、各大車站皆可購買與加值</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 1 -->
+    <div class="day-card day-1">
+      <div class="day-header">
+        <div class="day-number">1</div>
+        <div class="day-info">
+          <h2>抵達大阪・心齋橋夜逛</h2>
+          <div class="date">3月17日 (二)</div>
+        </div>
+      </div>
+      <div class="day-content">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">13:10</div>
+            <div class="timeline-title">🛬 抵達關西國際機場 (KIX)</div>
+            <div class="timeline-desc">樂桃航空位於第二航廈 (T2)，下機後儘快過海關</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:10</div>
+            <div class="timeline-title">🚐 KKday 專車接機</div>
+            <div class="timeline-desc">司機會在 T2 指定區域等候，9人+行李直接上車</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:30</div>
+            <div class="timeline-title">🏨 抵達大阪東急卓越酒店</div>
+            <div class="timeline-desc">辦理入住，飯店位於本町，樓下有星巴克與便利商店</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">17:00</div>
+            <div class="timeline-title">🛍️ 前往心齋橋、道頓堀</div>
+            <div class="timeline-desc">步行或搭地鐵（御堂筋線「本町」→「心齋橋」1站）</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">18:30</div>
+            <div class="timeline-title">🍜 晚餐：道頓堀區域</div>
+            <div class="timeline-desc">拉麵、燒肉、章魚燒…等大阪美食</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">21:00</div>
+            <div class="timeline-title">🌙 返回飯店休息</div>
+            <div class="timeline-desc">準備隔天 07:00 的集合</div>
+          </div>
+        </div>
+        
+        <!-- Day 1 美食推薦 -->
+        <div style="margin-top: 25px; padding: 20px; background: linear-gradient(135deg, rgba(212,181,181,0.15) 0%, rgba(180,196,209,0.15) 100%); border-radius: 12px; border: 1px dashed #D4C5C5;">
+          <h4 style="color: #6B5B5B; margin-bottom: 15px;">🍜 道頓堀美食推薦</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 0.9em;">
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #D64161;">🐙 章魚燒</div>
+              <div style="color: #5A5A5A;">くくる (Kukuru) 道頓堀本店</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥600~800｜外酥內軟</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #D64161;">🍜 一蘭拉麵</div>
+              <div style="color: #5A5A5A;">道頓堀店（24H）</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥980~｜單人座位隱私</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #D64161;">🥩 燒肉力丸</div>
+              <div style="color: #5A5A5A;">心齋橋店</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥3,000~｜和牛燒肉</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #D64161;">🍰 Pablo</div>
+              <div style="color: #5A5A5A;">心齋橋店</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥300~｜半熟起司塔</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Day 1 打卡點 -->
+        <div style="margin-top: 15px; padding: 20px; background: linear-gradient(135deg, rgba(197,209,197,0.15) 0%, rgba(197,191,204,0.15) 100%); border-radius: 12px; border: 1px dashed #C5D1C5;">
+          <h4 style="color: #6B5B5B; margin-bottom: 15px;">📸 必拍打卡點</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 0.9em;">
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #4A7C59;">🏃 固力果跑跑人</div>
+              <div style="color: #5A5A5A;">戎橋（道頓堀川）</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">經典地標｜夜景更美</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #4A7C59;">🦀 蟹道樂螃蟹招牌</div>
+              <div style="color: #5A5A5A;">道頓堀本店</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">巨型蟹腳會動！</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #4A7C59;">🎡 唐吉軻德摩天輪</div>
+              <div style="color: #5A5A5A;">心齋橋道頓堀店</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">免費搭乘（購物滿額）</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #4A7C59;">🛍️ 心齋橋筋商店街</div>
+              <div style="color: #5A5A5A;">拱廊入口</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">600m 購物天堂</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day-card day-2">
+      <div class="day-header">
+        <div class="day-number">2</div>
+        <div class="day-info">
+          <h2>分組行動：USJ / 京都</h2>
+          <div class="date">3月18日 (三)</div>
+        </div>
+      </div>
+      <div class="day-content">
+        <div class="highlight-box">
+          <h4>📢 今日分組行動</h4>
+          <p><span class="group-tag group-a">🎢 Group A (4人)</span> 環球影城熱血組 - 飯店環球專車</p>
+          <p><span class="group-tag group-b">🍵 Group B (5人)</span> 京都慢活組 - 阪急電鐵</p>
+        </div>
+        
+        <h4 style="margin: 20px 0 15px; color: #f5576c;">🎢 Group A：環球影城</h4>
+        
+        <!-- 環球影城門票與注意事項快速入口 -->
+        <div style="margin: 15px 0 20px; padding: 15px 20px; background: linear-gradient(135deg, #f5576c 0%, #ff8c7f 100%); border-radius: 12px; box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);">
+          <a href="環球影城注意事項.pdf" target="_blank" style="display: flex; align-items: center; justify-content: space-between; text-decoration: none; color: white;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="font-size: 2em;">🎫</span>
+              <div>
+                <div style="font-size: 1.1em; font-weight: 600;">環球影城門票 & 入園須知</div>
+                <div style="font-size: 0.85em; opacity: 0.9;">點擊查看門票 QR Code 及注意事項</div>
+              </div>
+            </div>
+            <span style="font-size: 1.5em;">📱</span>
+          </a>
+        </div>
+        
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">06:30</div>
+            <div class="timeline-title">🍳 飯店早餐</div>
+            <div class="timeline-desc">提早用餐，記得 07:00 前到大廣集合</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">07:00</div>
+            <div class="timeline-title">🚌 直達專車飯店接送</div>
+            <div class="timeline-desc">大阪東急卓越酒店大廳門口集合</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">07:40</div>
+            <div class="timeline-title">抵達環球影城</div>
+            <div class="timeline-desc">首要任務：手機 App 抽「瑪利歐整理券」</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">19:00</div>
+            <div class="timeline-title">🚌 直達專車接回</div>
+            <div class="timeline-desc">在環球影城指定上車點集合，返回飯店</div>
+          </div>
+        </div>
+        
+        <h4 style="margin: 20px 0 15px; color: #00b4d8;">🍵 Group B：京都慢活</h4>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">08:00</div>
+            <div class="timeline-title">🍳 飯店早餐</div>
+            <div class="timeline-desc">悠閒用餐，準備 09:00 出發</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:00</div>
+            <div class="timeline-title">飯店出發往梅田</div>
+            <div class="timeline-desc">搭阪急京都線特急往京都河原町</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:30</div>
+            <div class="timeline-title">🏮 錦市場 (邊走邊吃)</div>
+            <div class="timeline-desc">推薦：三木雞卵、生蠔、章魚小串</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:00</div>
+            <div class="timeline-title">🏯 二條城 (世界遺產)</div>
+            <div class="timeline-desc">搭地鐵東西線前往</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:30</div>
+            <div class="timeline-title">🌊 鴨川散步</div>
+            <div class="timeline-desc">在鴨川跳石、看夕陽拍照</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">18:00</div>
+            <div class="timeline-title">🍶 先斗町晚餐</div>
+            <div class="timeline-desc">古色古香的小巷內享用京都料理</div>
+          </div>
+        </div>
+        
+        <!-- Day 2 美食推薦 -->
+        <div style="margin-top: 25px; padding: 20px; background: linear-gradient(135deg, rgba(212,181,181,0.15) 0%, rgba(180,196,209,0.15) 100%); border-radius: 12px; border: 1px dashed #D4C5C5;">
+          <h4 style="color: #6B5B5B; margin-bottom: 15px;">🍜 今日美食推薦</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 0.9em;">
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px; border-left: 3px solid #f5576c;">
+              <div style="font-size: 0.75em; color: #f5576c; margin-bottom: 3px;">🎢 USJ組</div>
+              <div style="font-weight: 600; color: #D64161;">🍄 奇諾比奧餐廳</div>
+              <div style="color: #5A5A5A;">瑪利歐園區內</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥2,000~｜超萌蘑菇餐</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px; border-left: 3px solid #f5576c;">
+              <div style="font-size: 0.75em; color: #f5576c; margin-bottom: 3px;">🎢 USJ組</div>
+              <div style="font-weight: 600; color: #D64161;">🍺 三根掃帚</div>
+              <div style="color: #5A5A5A;">哈利波特園區</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥1,500~｜奶油啤酒必喝</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px; border-left: 3px solid #00b4d8;">
+              <div style="font-size: 0.75em; color: #00b4d8; margin-bottom: 3px;">🍵 京都組</div>
+              <div style="font-weight: 600; color: #0098b3;">🥚 三木雞卵</div>
+              <div style="color: #5A5A5A;">錦市場</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥300~｜高湯玉子燒</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px; border-left: 3px solid #00b4d8;">
+              <div style="font-size: 0.75em; color: #00b4d8; margin-bottom: 3px;">🍵 京都組</div>
+              <div style="font-weight: 600; color: #0098b3;">🍡 中村藤吉</div>
+              <div style="color: #5A5A5A;">先斗町或本店</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥1,200~｜抹茶甜點</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Day 2 打卡點 -->
+        <div style="margin-top: 15px; padding: 20px; background: linear-gradient(135deg, rgba(197,209,197,0.15) 0%, rgba(197,191,204,0.15) 100%); border-radius: 12px; border: 1px dashed #C5D1C5;">
+          <h4 style="color: #6B5B5B; margin-bottom: 15px;">📸 必拍打卡點</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 0.9em;">
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px; border-left: 3px solid #f5576c;">
+              <div style="font-size: 0.75em; color: #f5576c; margin-bottom: 3px;">🎢 USJ組</div>
+              <div style="font-weight: 600; color: #4A7C59;">🏰 霍乍茲城堡</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">經典必拍｜城堡前噴水池</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px; border-left: 3px solid #f5576c;">
+              <div style="font-size: 0.75em; color: #f5576c; margin-bottom: 3px;">🎢 USJ組</div>
+              <div style="font-weight: 600; color: #4A7C59;">🍄 瑪利歐水管</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">超級任天堂世界入口</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px; border-left: 3px solid #00b4d8;">
+              <div style="font-size: 0.75em; color: #00b4d8; margin-bottom: 3px;">🍵 京都組</div>
+              <div style="font-weight: 600; color: #4A7C59;">🏮 錦市場入口</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">京都的廚房招牌</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px; border-left: 3px solid #00b4d8;">
+              <div style="font-size: 0.75em; color: #00b4d8; margin-bottom: 3px;">🍵 京都組</div>
+              <div style="font-weight: 600; color: #4A7C59;">🌊 鴨川跳烏龜石</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">三条大橋下｜黃昏最美</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="day-card day-3">
+      <div class="day-header">
+        <div class="day-number">3</div>
+        <div class="day-info">
+          <h2>神戶港都慢活一日遊</h2>
+          <div class="date">3月19日 (四)</div>
+        </div>
+      </div>
+      <div class="day-content">
+        <div class="highlight-box">
+          <h4>🎫 交通方式</h4>
+          <p>ICOCA 搭阪神電車往返 + City Loop 巴士 (IC卡每次¥260)</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">08:00</div>
+            <div class="timeline-title">🍳 飯店早餐</div>
+            <div class="timeline-desc">悠閒用餐，準備 09:00 出發去神戶</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:00</div>
+            <div class="timeline-title">🚃 飯店出發</div>
+            <div class="timeline-desc">本町站搭地鐵至難波，轉乘阪神電車</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:15</div>
+            <div class="timeline-title">抵達神戶三宮</div>
+            <div class="timeline-desc">步行至 City Loop 7號站牌</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:50</div>
+            <div class="timeline-title">🏠 北野異人館快閃</div>
+            <div class="timeline-desc">風見雞之館周邊拍照、復古星巴克</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:00</div>
+            <div class="timeline-title">🥟 午餐：南京町中華街</div>
+            <div class="timeline-desc">老祥記肉包、民生廣東料理、神戶牛</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:00</div>
+            <div class="timeline-title">🛍️ 元町商店街散策</div>
+            <div class="timeline-desc">平坦的商店街逛精緻雜貨</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:30</div>
+            <div class="timeline-title">⚓ 神戶港 / UMIE</div>
+            <div class="timeline-desc">逛大型商場、海景下午茶</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">17:30</div>
+            <div class="timeline-title">📸 BE KOBE 合照</div>
+            <div class="timeline-desc">趁黃昏光線在發光地標前留影</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">20:00</div>
+            <div class="timeline-title">🚃 搭阪神電車回大阪</div>
+            <div class="timeline-desc">從高速神戶站或元町站出發</div>
+          </div>
+        </div>
+        
+        <!-- Day 3 美食推薦 -->
+        <div style="margin-top: 25px; padding: 20px; background: linear-gradient(135deg, rgba(212,181,181,0.15) 0%, rgba(180,196,209,0.15) 100%); border-radius: 12px; border: 1px dashed #D4C5C5;">
+          <h4 style="color: #6B5B5B; margin-bottom: 15px;">🍜 神戶美食推薦</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 0.9em;">
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #D64161;">🥟 老祥記</div>
+              <div style="color: #5A5A5A;">南京町（中華街）</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥100/個｜神戶豚饅第一</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #D64161;">🥩 神戶牛排</div>
+              <div style="color: #5A5A5A;">MOURIYA 或 神戸牛丼</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥3,000~｜入口即化</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #D64161;">🍮 觀音屋芝士蛋糕</div>
+              <div style="color: #5A5A5A;">元町商店街</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥450｜熱呼呼的芝士蛋糕</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #D64161;">☕ 星巴克北野</div>
+              <div style="color: #5A5A5A;">北野異人館</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">日本唯一洋館星巴克</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Day 3 打卡點 -->
+        <div style="margin-top: 15px; padding: 20px; background: linear-gradient(135deg, rgba(197,209,197,0.15) 0%, rgba(197,191,204,0.15) 100%); border-radius: 12px; border: 1px dashed #C5D1C5;">
+          <h4 style="color: #6B5B5B; margin-bottom: 15px;">📸 必拍打卡點</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 0.9em;">
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #4A7C59;">🅱️ BE KOBE 地標</div>
+              <div style="color: #5A5A5A;">美利堅波止場</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">神戶必拍｜黃昏最美</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #4A7C59;">🐓 風見雞之館</div>
+              <div style="color: #5A5A5A;">北野異人館區</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">德式紅磚洋房</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #4A7C59;">⚓ 神戶港塔</div>
+              <div style="color: #5A5A5A;">神戶港</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">紅色鼓形地標（可登塔）</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #4A7C59;">🏮 南京町長安門</div>
+              <div style="color: #5A5A5A;">中華街入口</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">日本三大中華街</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 4 -->
+    <div class="day-card day-4">
+      <div class="day-header">
+        <div class="day-number">4</div>
+        <div class="day-info">
+          <h2>京都櫻花包車一日遊</h2>
+          <div class="date">3月20日 (五) 春分連假</div>
+        </div>
+      </div>
+      <div class="day-content">
+        <div class="highlight-box">
+          <h4>🚐 10小時包車 (08:00-18:00)</h4>
+          <p>戰略：晨攻嵐山、午避塞車、晚賞夜櫻</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">07:00</div>
+            <div class="timeline-title">🍳 飯店早餐</div>
+            <div class="timeline-desc">提早用餐，08:00 包車準時出發</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">08:00</div>
+            <div class="timeline-title">🚐 大阪飯店出發</div>
+            <div class="timeline-desc">包車計時開始，避開高速公路塞車潮</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:00</div>
+            <div class="timeline-title">🎋 嵐山：渡月橋 & 竹林</div>
+            <div class="timeline-desc">趁旅行團尚未抵達，搶先拍攝空曠竹林</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:30</div>
+            <div class="timeline-title">🌸 天龍寺 (曹源池庭園)</div>
+            <div class="timeline-desc">欣賞滿開的枝垂櫻</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:30</div>
+            <div class="timeline-title">🍱 午餐：嵐山在地料理</div>
+            <div class="timeline-desc">提早半小時吃，避開12點排隊人潮</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:00</div>
+            <div class="timeline-title">😴 跨區移動 (車上休息)</div>
+            <div class="timeline-desc">趁午後最熱時在車內休息前往東山區</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:00</div>
+            <div class="timeline-title">⛩️ 清水寺 & 二三年坂</div>
+            <div class="timeline-desc">櫻花季經典場景，包車送至最近門口</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:00</div>
+            <div class="timeline-title">🚂 蹴上傾斜鐵道</div>
+            <div class="timeline-desc">舊鐵道櫻花隧道，最佳9人合照點</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">17:30</div>
+            <div class="timeline-title">🏮 祇園・白川筋散策</div>
+            <div class="timeline-desc">欣賞江戶風情的流水與垂櫻</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">18:00</div>
+            <div class="timeline-title">🚐 包車結束</div>
+            <div class="timeline-desc">於祇園解散，夜櫻點燈開始自由活動</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">19:30</div>
+            <div class="timeline-title">🍶 先斗町/河原町晚餐</div>
+            <div class="timeline-desc">用餐後搭阪急電車回大阪</div>
+          </div>
+        </div>
+        
+        <!-- Day 4 美食推薦 -->
+        <div style="margin-top: 25px; padding: 20px; background: linear-gradient(135deg, rgba(212,181,181,0.15) 0%, rgba(180,196,209,0.15) 100%); border-radius: 12px; border: 1px dashed #D4C5C5;">
+          <h4 style="color: #6B5B5B; margin-bottom: 15px;">🍜 京都美食推薦</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 0.9em;">
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #D64161;">🍜 嵐山よしむら</div>
+              <div style="color: #5A5A5A;">嵐山渡月橋旁</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥1,500~｜手打蕎麥麵</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #D64161;">🍡 稻荷茶寮</div>
+              <div style="color: #5A5A5A;">嵐山竹林附近</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥800~｜抹茶糰子</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #D64161;">🍧 % Arabica</div>
+              <div style="color: #5A5A5A;">嵐山店｜東山店</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥500~｜網紅咖啡</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #D64161;">🍶 先斗町</div>
+              <div style="color: #5A5A5A;">鴨川沿岸</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">¥3,000~｜京懷石/居酒屋</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Day 4 打卡點 -->
+        <div style="margin-top: 15px; padding: 20px; background: linear-gradient(135deg, rgba(197,209,197,0.15) 0%, rgba(197,191,204,0.15) 100%); border-radius: 12px; border: 1px dashed #C5D1C5;">
+          <h4 style="color: #6B5B5B; margin-bottom: 15px;">📸 必拍打卡點（全是櫻花名所！）</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 0.9em;">
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #4A7C59;">🌸 渡月橋 × 櫻花</div>
+              <div style="color: #5A5A5A;">嵐山</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">橋上山景絕美</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #4A7C59;">🎋 竹林小徑</div>
+              <div style="color: #5A5A5A;">嵐山竹林</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">早去人少｜超仙氣</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #4A7C59;">🚂 蹴上傾斜鐵道</div>
+              <div style="color: #5A5A5A;">東山區</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">鐵軌櫻花隧道｜必拍！</div>
+            </div>
+            <div style="background: #FDFCFA; padding: 12px; border-radius: 8px;">
+              <div style="font-weight: 600; color: #4A7C59;">⛩️ 清水舞台</div>
+              <div style="color: #5A5A5A;">清水寺</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">眺望京都市景+櫻花</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 5 -->
+    <div class="day-card day-5">
+      <div class="day-header">
+        <div class="day-number">5</div>
+        <div class="day-info">
+          <h2>大阪最後衝刺：賞櫻購物夜景</h2>
+          <div class="date">3月21日 (六)</div>
+        </div>
+      </div>
+      <div class="day-content">
+        <div class="highlight-box">
+          <h4>🎫 大阪週遊券 (Osaka Amazing Pass)</h4>
+          <p>一日券約 ¥3,300，含大阪城西之丸庭園 + 梅田藍天大廈門票</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">08:00</div>
+            <div class="timeline-title">🍳 飯店早餐</div>
+            <div class="timeline-desc">悠閒用餐，準備今天最後衝刺！</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:00</div>
+            <div class="timeline-title">🏯 大阪城公園 (西之丸庭園)</div>
+            <div class="timeline-desc">從本町搭中央線2站直達，週遊券免費入園</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:30</div>
+            <div class="timeline-title">🦀 黑門市場 (午餐體驗)</div>
+            <div class="timeline-desc">搭地鐵至日本橋站，分散買小吃再集合</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:30</div>
+            <div class="timeline-title">🛍️ 難波/心齋橋 (最後採買)</div>
+            <div class="timeline-desc">可分組：藥妝組、服飾組、動漫組</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:30</div>
+            <div class="timeline-title">🌆 梅田藍天大廈 (空中庭園)</div>
+            <div class="timeline-desc">搭地鐵至梅田站，週遊券可免費入場</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">18:30</div>
+            <div class="timeline-title">🍣 晚餐：梅田</div>
+            <div class="timeline-desc">推薦 Grand Front Osaka 或 LUCUA 餐廳</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">21:00</div>
+            <div class="timeline-title">🧳 回飯店整理行李</div>
+            <div class="timeline-desc">準備隔天早上的機場專車</div>
+          </div>
+        </div>
+
+        <!-- Day 5 美食推薦 -->
+        <div style="margin-top: 25px; padding: 20px; background: linear-gradient(135deg, #FFF5F5 0%, #FFF0F0 100%); border-radius: 15px; border: 1px dashed #E8B4B4;">
+          <h4 style="color: #B47B7B; margin-bottom: 15px; font-size: 1.1em;">🍴 美食推薦</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+            <div style="background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="font-weight: 600; color: #6B5B5B;">🦀 黑門市場海鮮</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">黒門市場內</div>
+              <div style="font-size: 0.85em; color: #B47B7B; margin-top: 5px;">必吃：現烤帝王蟹腳、鮪魚生魚片</div>
+            </div>
+            <div style="background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="font-weight: 600; color: #6B5B5B;">🍣 丸善食肉店</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">黑門市場人氣店</div>
+              <div style="font-size: 0.85em; color: #B47B7B; margin-top: 5px;">現煎和牛、神戶牛串燒</div>
+            </div>
+            <div style="background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="font-weight: 600; color: #6B5B5B;">🥘 梅田美食街</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">Grand Front Osaka B1</div>
+              <div style="font-size: 0.85em; color: #B47B7B; margin-top: 5px;">多樣選擇、適合團體用餐</div>
+            </div>
+            <div style="background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="font-weight: 600; color: #6B5B5B;">🍦 黑門三平</div>
+              <div style="font-size: 0.85em; color: #8B8B8B;">黑門市場東側</div>
+              <div style="font-size: 0.85em; color: #B47B7B; margin-top: 5px;">超值海鮮丼、現切水果</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 5 打卡點 -->
+        <div style="margin-top: 15px; padding: 20px; background: linear-gradient(135deg, #F5FFF5 0%, #F0FFF0 100%); border-radius: 15px; border: 1px dashed #B4D4B4;">
+          <h4 style="color: #7B9B7B; margin-bottom: 15px; font-size: 1.1em;">📸 必拍打卡點</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+            <div style="background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="font-weight: 600; color: #6B5B5B;">🏯 大阪城天守閣×櫻花</div>
+              <div style="font-size: 0.85em; color: #7B9B7B; margin-top: 5px;">西之丸庭園拍攝最佳角度</div>
+            </div>
+            <div style="background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="font-weight: 600; color: #6B5B5B;">🌸 西之丸庭園</div>
+              <div style="font-size: 0.85em; color: #7B9B7B; margin-top: 5px;">300棵櫻花樹、野餐氛圍感</div>
+            </div>
+            <div style="background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="font-weight: 600; color: #6B5B5B;">🦞 黑門市場招牌</div>
+              <div style="font-size: 0.85em; color: #7B9B7B; margin-top: 5px;">「大阪人的廚房」經典入口</div>
+            </div>
+            <div style="background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="font-weight: 600; color: #6B5B5B;">🌃 梅田空中庭園</div>
+              <div style="font-size: 0.85em; color: #7B9B7B; margin-top: 5px;">360度夜景、最後一晚浪漫收尾</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 6 -->
+    <div class="day-card day-6">
+      <div class="day-header">
+        <div class="day-number">6</div>
+        <div class="day-info">
+          <h2>旅程圓滿，平安返台</h2>
+          <div class="date">3月22日 (日)</div>
+        </div>
+      </div>
+      <div class="day-content">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">08:30</div>
+            <div class="timeline-title">🍳 飯店早餐</div>
+            <div class="timeline-desc">最後一次飯店早餐，悠閒享用</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:30</div>
+            <div class="timeline-title">⚖️ 行李最後整點</div>
+            <div class="timeline-desc">樂桃航空對行李斤斤計較，建議在飯店借秤確保不超重</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:15</div>
+            <div class="timeline-title">🏨 辦理退房</div>
+            <div class="timeline-desc">確認房卡已全數歸還，9位團員大廳集合</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:30</div>
+            <div class="timeline-title">🚐 專車出發往機場</div>
+            <div class="timeline-desc">預計車程 50-60 分鐘至關西機場</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:00</div>
+            <div class="timeline-title">✈️ 登機報到與託運</div>
+            <div class="timeline-desc">樂桃航空在第二航廈 (T2)，需先自助報到</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:00</div>
+            <div class="timeline-title">🍜 機場午餐 / 免稅店</div>
+            <div class="timeline-desc">補買生巧克力、香蕉蛋糕</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:30</div>
+            <div class="timeline-title">🚶 前往登機門</div>
+            <div class="timeline-desc">樂桃航空 MM027，T2 航廈</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:25</div>
+            <div class="timeline-title">🛫 起飛回台灣</div>
+            <div class="timeline-desc">預計 17:55 抵達桃園機場 T1，帶著滿滿回憶回家！</div>
+          </div>
+        </div>
+
+        <!-- Day 6 伴手禮推薦 -->
+        <div style="margin-top: 25px; padding: 20px; background: linear-gradient(135deg, #FFF8F0 0%, #FFF5EB 100%); border-radius: 15px; border: 1px dashed #E8C9A4;">
+          <h4 style="color: #B49B7B; margin-bottom: 15px; font-size: 1.1em;">🎁 機場必買伴手禮</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
+            <div style="background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="font-weight: 600; color: #6B5B5B;">🍫 ROYCE 生巧克力</div>
+              <div style="font-size: 0.85em; color: #B49B7B; margin-top: 5px;">北海道人氣、入口即化</div>
+            </div>
+            <div style="background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="font-weight: 600; color: #6B5B5B;">🍌 Tokyo Banana</div>
+              <div style="font-size: 0.85em; color: #B49B7B; margin-top: 5px;">經典伴手禮、多種口味</div>
+            </div>
+            <div style="background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="font-weight: 600; color: #6B5B5B;">🍵 抹茶點心</div>
+              <div style="font-size: 0.85em; color: #B49B7B; margin-top: 5px;">伊藤久右衛門、MARUKYU</div>
+            </div>
+            <div style="background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="font-weight: 600; color: #6B5B5B;">🥧 551蓬萊肉包</div>
+              <div style="font-size: 0.85em; color: #B49B7B; margin-top: 5px;">大阪名物、機場限定冷凍包</div>
+            </div>
+          </div>
+          <p style="margin-top: 15px; font-size: 0.85em; color: #8B8B8B; text-align: center;">💡 提醒：生巧克力需冷藏，建議登機前購買並放隨身行李</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 費用表 -->
+    <div class="tips-section">
+      <h3>💰 費用明細</h3>
+      <p style="color: #8B8B8B; margin-bottom: 20px; font-size: 0.9em;">📌 以下費用<strong style="color: #B47B7B;">不含餐食</strong>，餐食預算請參考下方「餐食預算參考」區塊</p>
+      
+      <!-- 共同費用 -->
+      <h4 style="color: #6B5B5B; margin-bottom: 15px; padding-left: 10px; border-left: 3px solid #C5D1C5;">👥 共同費用（全員 9 人）</h4>
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>使用日期</th>
+            <th>總費用</th>
+            <th>每人費用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>✈️🏨 機+酒</td>
+            <td>3/17-22</td>
+            <td>¥240,029</td>
+            <td>¥26,670</td>
+          </tr>
+          <tr>
+            <td>🚐 機場接送(來回)</td>
+            <td>3/17、22</td>
+            <td>¥5,692</td>
+            <td>¥632</td>
+          </tr>
+          <tr>
+            <td>📱 E-sim卡</td>
+            <td>5天</td>
+            <td>¥3,051</td>
+            <td>¥339</td>
+          </tr>
+          <tr>
+            <td>🚌 KOBE City Loop</td>
+            <td>3/19</td>
+            <td>¥1,530</td>
+            <td>¥170</td>
+          </tr>
+          <tr>
+            <td>🚐 京都包車</td>
+            <td>3/20</td>
+            <td>¥10,313</td>
+            <td>¥1,146</td>
+          </tr>
+          <tr>
+            <td>🎫 大阪週遊卡</td>
+            <td>3/21</td>
+            <td>¥5,877</td>
+            <td>¥653</td>
+          </tr>
+          <tr>
+            <td>💳 ICOCA</td>
+            <td>3/17-22</td>
+            <td>¥4,500</td>
+            <td>¥500</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="total-row">
+            <td colspan="3">共同費用小計</td>
+            <td>¥30,110</td>
+          </tr>
+        </tfoot>
+      </table>
+      
+      <!-- 環球影城費用 -->
+      <h4 style="color: #6B5B5B; margin: 25px 0 15px; padding-left: 10px; border-left: 3px solid #D4B5B5;">🎢 環球影城費用（僅 Group A 4 人）</h4>
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>使用日期</th>
+            <th>總費用</th>
+            <th>每人費用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🎢 環球影城門票</td>
+            <td>3/18</td>
+            <td>¥8,172 (4人)</td>
+            <td>¥2,043</td>
+          </tr>
+          <tr>
+            <td>🚌 飯店到環球專車</td>
+            <td>3/18</td>
+            <td>¥3,514 (4人)</td>
+            <td>¥879</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="total-row">
+            <td colspan="3">環球費用小計</td>
+            <td>¥2,922</td>
+          </tr>
+        </tfoot>
+      </table>
+      
+      <!-- 費用總結 -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 25px;">
+        <div style="background: linear-gradient(135deg, #C5D1C5 0%, #B4C4B4 100%); padding: 20px; border-radius: 12px; text-align: center;">
+          <div style="font-size: 0.9em; color: #4A5A4A; margin-bottom: 5px;">🍵 不去環球（5人）</div>
+          <div style="font-size: 1.8em; font-weight: 600; color: #3A4A3A;">約 ¥30,110</div>
+          <div style="font-size: 0.8em; color: #5A6A5A; margin-top: 5px;">共同費用</div>
+        </div>
+        <div style="background: linear-gradient(135deg, #D4B5B5 0%, #C4A5A5 100%); padding: 20px; border-radius: 12px; text-align: center;">
+          <div style="font-size: 0.9em; color: #5A4A4A; margin-bottom: 5px;">🎢 去環球（4人）</div>
+          <div style="font-size: 1.8em; font-weight: 600; color: #4A3A3A;">約 ¥33,032</div>
+          <div style="font-size: 0.8em; color: #6A5A5A; margin-top: 5px;">共同費用 + 環球費用</div>
+        </div>
+      </div>
+      
+      <p style="color: #9B8B8B; margin-top: 15px; font-size: 0.85em; text-align: center;">💡 以上費用不含餐食，僅包含交通、門票、住宿相關支出</p>
+    </div>
+
+    <!-- 餐食預算 -->
+    <div class="tips-section">
+      <h3>🍽️ 餐食預算參考</h3>
+      
+      <!-- 早餐資訊 -->
+      <div style="background: linear-gradient(135deg, #C5D1C5 0%, #B4C4B4 100%); color: #3A4A3A; padding: 15px 20px; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; gap: 15px;">
+        <div style="font-size: 2em;">🍳</div>
+        <div>
+          <div style="font-weight: 600; font-size: 1.1em;">飯店早餐 (已含在機+酒費用內)</div>
+          <div style="font-size: 0.9em; opacity: 0.9;">⏰ 06:30 ~ 09:30｜📍 大阪東急卓越酒店餐廳</div>
+        </div>
+      </div>
+      
+      <p style="color: #8B8B8B; margin-bottom: 20px; font-size: 0.9em;">以下為日本當地午餐、晚餐價格估算（日幣）。實際花費因個人食量與選擇而異。</p>
+      
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>日期</th>
+            <th>午餐</th>
+            <th>晚餐</th>
+            <th>每人小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Day 1</strong> 3/17</td>
+            <td style="color: #8B8B8B;">—（飛機上）</td>
+            <td>道頓堀 拉麵/燒肉<br><span style="font-size: 0.85em; color: #8B8B8B;">¥1,500~3,000</span></td>
+            <td>¥1,500~3,000</td>
+          </tr>
+          <tr>
+            <td><strong>Day 2</strong> 3/18</td>
+            <td>
+              <div style="margin-bottom: 5px;"><span class="group-tag group-a">USJ組</span>園內餐廳<br><span style="font-size: 0.85em; color: #8B8B8B;">¥1,500~2,500</span></div>
+              <div><span class="group-tag group-b">京都組</span>錦市場小吃<br><span style="font-size: 0.85em; color: #8B8B8B;">¥1,000~2,000</span></div>
+            </td>
+            <td>
+              <div style="margin-bottom: 5px;"><span class="group-tag group-a">USJ組</span>自理</div>
+              <div><span class="group-tag group-b">京都組</span>先斗町<br><span style="font-size: 0.85em; color: #8B8B8B;">¥2,500~4,000</span></div>
+            </td>
+            <td>¥2,500~6,000</td>
+          </tr>
+          <tr>
+            <td><strong>Day 3</strong> 3/19</td>
+            <td>南京町中華街<br><span style="font-size: 0.85em; color: #8B8B8B;">¥1,500~2,500</span></td>
+            <td>神戶港區 / 回大阪<br><span style="font-size: 0.85em; color: #8B8B8B;">¥1,500~3,000</span></td>
+            <td>¥3,000~5,500</td>
+          </tr>
+          <tr>
+            <td><strong>Day 4</strong> 3/20</td>
+            <td>嵐山在地料理<br><span style="font-size: 0.85em; color: #8B8B8B;">¥1,500~2,500</span></td>
+            <td>祇園/先斗町 京料理<br><span style="font-size: 0.85em; color: #8B8B8B;">¥3,000~5,000</span></td>
+            <td>¥4,500~7,500</td>
+          </tr>
+          <tr>
+            <td><strong>Day 5</strong> 3/21</td>
+            <td>黑門市場 海鮮<br><span style="font-size: 0.85em; color: #8B8B8B;">¥2,000~4,000</span></td>
+            <td>梅田晚餐<br><span style="font-size: 0.85em; color: #8B8B8B;">¥4,000~8,000</span></td>
+            <td>¥6,000~12,000</td>
+          </tr>
+          <tr>
+            <td><strong>Day 6</strong> 3/22</td>
+            <td>機場拉麵/便當<br><span style="font-size: 0.85em; color: #8B8B8B;">¥1,000~1,500</span></td>
+            <td style="color: #8B8B8B;">—（飛機上）</td>
+            <td>¥1,000~1,500</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="total-row">
+            <td colspan="3">6天餐食 每人預估</td>
+            <td>¥18,500~35,500</td>
+          </tr>
+        </tfoot>
+      </table>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 20px;">
+        <div style="background: #FAF8F5; padding: 15px; border-radius: 10px; border: 1px dashed #C5D1C5;">
+          <h4 style="color: #4A5A4A; margin-bottom: 10px;">💚 省錢方案</h4>
+          <div style="font-size: 0.9em; color: #5A5A5A;">
+            <p><strong>每人約 ¥18,500</strong>（約 NT$4,100）</p>
+            <ul style="margin: 10px 0 0 20px; line-height: 1.8;">
+              <li>午餐選拉麵、丼飯、定食</li>
+              <li>晚餐選居酒屋套餐</li>
+              <li>便利商店補充點心</li>
+            </ul>
+          </div>
+        </div>
+        <div style="background: #FAF8F5; padding: 15px; border-radius: 10px; border: 1px dashed #E8D5C5;">
+          <h4 style="color: #5A4A3A; margin-bottom: 10px;">🧡 舒適方案</h4>
+          <div style="font-size: 0.9em; color: #5A5A5A;">
+            <p><strong>每人約 ¥25,000</strong>（約 NT$5,500）</p>
+            <ul style="margin: 10px 0 0 20px; line-height: 1.8;">
+              <li>午餐選較好的定食</li>
+              <li>晚餐有一兩餐稍微豐盛</li>
+              <li>偶爾喝杯咖啡或甜點</li>
+            </ul>
+          </div>
+        </div>
+        <div style="background: #FAF8F5; padding: 15px; border-radius: 10px; border: 1px dashed #D4B5B5;">
+          <h4 style="color: #5A4545; margin-bottom: 10px;">❤️ 豐盛方案</h4>
+          <div style="font-size: 0.9em; color: #5A5A5A;">
+            <p><strong>每人約 ¥35,500</strong>（約 NT$7,900）</p>
+            <ul style="margin: 10px 0 0 20px; line-height: 1.8;">
+              <li>午餐吃好、市場盡情嘗鮮</li>
+              <li>晚餐吃燒肉、壽司、京懷石</li>
+              <li>每天下午茶、宵夜攤</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="highlight-box" style="margin-top: 20px;">
+        <h4>💡 餐費建議</h4>
+        <div style="font-size: 0.9em; line-height: 1.8; color: #5A5A5A;">
+          <p>📌 <strong>建議每人準備約 ¥25,000~30,000 餐費</strong>（約 NT$5,500~6,700）</p>
+          <p>📌 若加上零食、飲料、咖啡、宵夜，可再多抓 ¥5,000</p>
+          <p>📌 Day 5 晚餐建議提早預約，9人大團較難臨時找位</p>
+          <p>📌 長輩可能食量較小，可點定食或分食</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 天氣查詢 -->
+    <div class="tips-section">
+      <h3>🌤️ 天氣查詢</h3>
+      
+      <!-- 3月大阪天氣概況 -->
+      <div style="background: linear-gradient(135deg, #B4C4D1 0%, #A3B5C4 100%); color: #3A4550; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+        <div style="font-size: 1.1em; font-weight: 600; margin-bottom: 15px;">🌸 3月中下旬大阪天氣概況</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; text-align: center;">
+          <div style="background: rgba(255,255,255,0.3); padding: 12px; border-radius: 8px;">
+            <div style="font-size: 0.85em; opacity: 0.85;">🌡️ 氣溫</div>
+            <div style="font-size: 1.2em; font-weight: 600;">8°C ~ 16°C</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.3); padding: 12px; border-radius: 8px;">
+            <div style="font-size: 0.85em; opacity: 0.85;">☀️ 日照</div>
+            <div style="font-size: 1.2em; font-weight: 600;">06:00~18:15</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.3); padding: 12px; border-radius: 8px;">
+            <div style="font-size: 0.85em; opacity: 0.85;">🌧️ 降雨</div>
+            <div style="font-size: 1.2em; font-weight: 600;">中等機率</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.3); padding: 12px; border-radius: 8px;">
+            <div style="font-size: 0.85em; opacity: 0.85;">💨 體感</div>
+            <div style="font-size: 1.2em; font-weight: 600;">微涼偏冷</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 穿搭建議 -->
+      <div style="background: #FAF8F5; padding: 20px; border-radius: 12px; border: 1px dashed #D4C5C5; margin-bottom: 20px;">
+        <h4 style="color: #6B5B5B; margin-bottom: 15px;">👕 穿搭建議</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <div style="background: #FDFCFA; padding: 15px; border-radius: 10px; border-left: 3px solid #D4B5B5;">
+            <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 8px;">☀️ 白天 (10°C~16°C)</div>
+            <div style="font-size: 0.9em; color: #5A5A5A;">
+              輕薄毛衣 + 薄外套<br>
+              長褲或裙子+褲襪
+            </div>
+          </div>
+          <div style="background: #FDFCFA; padding: 15px; border-radius: 10px; border-left: 3px solid #B4C4D1;">
+            <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 8px;">🌙 早晚 (8°C~12°C)</div>
+            <div style="font-size: 0.9em; color: #5A5A5A;">
+              需加保暖外套<br>
+              風衣或輕羽絨
+            </div>
+          </div>
+          <div style="background: #FDFCFA; padding: 15px; border-radius: 10px; border-left: 3px solid #C5D1C5;">
+            <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 8px;">🌧️ 雨天備品</div>
+            <div style="font-size: 0.9em; color: #5A5A5A;">
+              折疊傘必帶<br>
+              防水外套更佳
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 15px; padding: 12px; background: #FDFCFA; border-radius: 8px; font-size: 0.9em; color: #8B7B7B;">
+          💡 <strong>洋蔥式穿法</strong>：日夜溫差大，建議內層薄長袖 + 中層毛衣 + 外層防風外套，方便穿脫
+        </div>
+      </div>
+      
+      <!-- 天氣查詢連結 -->
+      <div style="background: #FDFCFA; padding: 20px; border-radius: 12px; border: 1px dashed #D4C5C5;">
+        <h4 style="color: #6B5B5B; margin-bottom: 15px;">🔗 即時天氣查詢</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+          <a href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&area_code=270000" target="_blank" style="display: block; background: linear-gradient(135deg, #C5D1C5 0%, #B4C4B4 100%); color: #3A4A3A; padding: 15px; border-radius: 10px; text-decoration: none; text-align: center;">
+            <div style="font-size: 1.5em; margin-bottom: 5px;">🇯🇵</div>
+            <div style="font-weight: 600;">日本氣象廳</div>
+            <div style="font-size: 0.85em; opacity: 0.85;">官方最準確</div>
+          </a>
+          <a href="https://weather.yahoo.co.jp/weather/jp/27/6200.html" target="_blank" style="display: block; background: linear-gradient(135deg, #D4B5B5 0%, #C4A5A5 100%); color: #4A3A3A; padding: 15px; border-radius: 10px; text-decoration: none; text-align: center;">
+            <div style="font-size: 1.5em; margin-bottom: 5px;">☀️</div>
+            <div style="font-weight: 600;">Yahoo 天氣</div>
+            <div style="font-size: 0.85em; opacity: 0.85;">每小時預報</div>
+          </a>
+          <a href="https://www.accuweather.com/zh/jp/osaka-shi/224436/daily-weather-forecast/224436" target="_blank" style="display: block; background: linear-gradient(135deg, #B4C4D1 0%, #A3B5C4 100%); color: #3A4550; padding: 15px; border-radius: 10px; text-decoration: none; text-align: center;">
+            <div style="font-size: 1.5em; margin-bottom: 5px;">🌍</div>
+            <div style="font-weight: 600;">AccuWeather</div>
+            <div style="font-size: 0.85em; opacity: 0.85;">中文介面</div>
+          </a>
+          <a href="https://www.windy.com/zh-TW/34.687/135.520?34.687,135.520,10" target="_blank" style="display: block; background: linear-gradient(135deg, #C5BFCC 0%, #B5AFBC 100%); color: #4A4450; padding: 15px; border-radius: 10px; text-decoration: none; text-align: center;">
+            <div style="font-size: 1.5em; margin-bottom: 5px;">💨</div>
+            <div style="font-weight: 600;">Windy</div>
+            <div style="font-size: 0.85em; opacity: 0.85;">風向雲圖動態</div>
+          </a>
+        </div>
+      </div>
+      
+      <!-- 櫻花情報 -->
+      <div style="background: linear-gradient(135deg, rgba(212,181,181,0.3) 0%, rgba(197,209,197,0.3) 100%); padding: 15px 20px; border-radius: 12px; margin-top: 20px; display: flex; align-items: center; gap: 15px;">
+        <div style="font-size: 2em;">🌸</div>
+        <div>
+          <div style="font-weight: 600; color: #6B5B5B;">櫻花開花情報</div>
+          <div style="font-size: 0.9em; color: #8B7B7B;">大阪預計 3/25 前後滿開，3/17-22 約 5-7 分咲</div>
+          <a href="https://weathernews.jp/s/sakura/" target="_blank" style="font-size: 0.85em; color: #8B7B8B;">🔗 weathernews 櫻花預測</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 出發前檢查清單 -->
+    <div class="tips-section">
+      <h3>✅ 出發前一晚檢查清單</h3>
+      
+      <div style="background: linear-gradient(135deg, #D4B5B5 0%, #C4A5A5 100%); color: #4A3A3A; padding: 15px 20px; border-radius: 12px; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="font-size: 2em;">📅</div>
+          <div>
+            <div style="font-weight: 600; font-size: 1.1em;">3月16日 (一) 晚上</div>
+            <div style="font-size: 0.9em; opacity: 0.9;">出發前一晚請確認以下物品都已準備好！</div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+        
+        <!-- 證件文件 -->
+        <div style="background: #FAF8F5; padding: 20px; border-radius: 12px; border: 1px dashed #D4C5C5;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <span style="background: #D4B5B5; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8em;">1</span>
+            📄 證件文件（最重要！）
+          </div>
+          <div style="font-size: 0.9em; color: #5A5A5A; line-height: 1.8;">
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 護照（效期 6 個月以上）
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 機票電子憑證（截圖備用）
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 飯店訂房確認信
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> Visit Japan Web QR Code（截圖）
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 環球影城門票 QR Code
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 旅平險保單
+            </label>
+          </div>
+        </div>
+        
+        <!-- 電子產品 -->
+        <div style="background: #FAF8F5; padding: 20px; border-radius: 12px; border: 1px dashed #D4C5C5;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <span style="background: #B4C4D1; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8em;">2</span>
+            📱 電子產品
+          </div>
+          <div style="font-size: 0.9em; color: #5A5A5A; line-height: 1.8;">
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 手機 + 充電線
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 行動電源（需隨身帶）
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> E-SIM 已啟用 / SIM卡
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 相機 + 記憶卡 + 電池
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 萬用轉接頭（日本 110V 雙扁插）
+            </label>
+          </div>
+        </div>
+        
+        <!-- 現金與卡片 -->
+        <div style="background: #FAF8F5; padding: 20px; border-radius: 12px; border: 1px dashed #D4C5C5;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <span style="background: #C5D1C5; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8em;">3</span>
+            💰 現金與卡片
+          </div>
+          <div style="font-size: 0.9em; color: #5A5A5A; line-height: 1.8;">
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 日幣現金（建議 ¥50,000 以上）
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 信用卡（Visa/Master 為主）
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 台幣少量備用
+            </label>
+          </div>
+        </div>
+        
+        <!-- 衣物 -->
+        <div style="background: #FAF8F5; padding: 20px; border-radius: 12px; border: 1px dashed #D4C5C5;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <span style="background: #C5BFCC; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8em;">4</span>
+            👕 衣物（3月微涼）
+          </div>
+          <div style="font-size: 0.9em; color: #5A5A5A; line-height: 1.8;">
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 薄外套 / 風衣
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 輕薄毛衣 / 長袖上衣
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 好走的鞋（每天走很多！）
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 內衣褲 × 天數
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 睡衣（飯店有但自備更舒適）
+            </label>
+          </div>
+        </div>
+        
+        <!-- 日用品 -->
+        <div style="background: #FAF8F5; padding: 20px; border-radius: 12px; border: 1px dashed #D4C5C5;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <span style="background: #D1C5B5; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8em;">5</span>
+            🧴 日用品
+          </div>
+          <div style="font-size: 0.9em; color: #5A5A5A; line-height: 1.8;">
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 牙刷牙膏（飯店有但習慣自己的）
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 保養品 / 化妝品（100ml 內）
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 摺疊傘
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 個人藥品（胃藥、感冒藥等）
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 口罩、濕紙巾
+            </label>
+          </div>
+        </div>
+        
+        <!-- 行李注意 -->
+        <div style="background: #FAF8F5; padding: 20px; border-radius: 12px; border: 1px dashed #D4C5C5;">
+          <div style="font-weight: 600; color: #6B5B5B; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <span style="background: #E8D5C5; color: #5A4A3A; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8em;">6</span>
+            🧳 行李注意
+          </div>
+          <div style="font-size: 0.9em; color: #5A5A5A; line-height: 1.8;">
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 托運行李秤重（每件 20kg 內）
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 手提行李不超過 7kg
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 液體放托運（100ml以上）
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 行動電源隨身帶
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" style="width: 18px; height: 18px;"> 預留購物空間！
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 出發當天提醒 -->
+      <div style="background: linear-gradient(135deg, #C5D1C5 0%, #B4C4B4 100%); color: #3A4A3A; padding: 15px 20px; border-radius: 12px; margin-top: 20px;">
+        <div style="font-weight: 600; margin-bottom: 10px;">🌅 3月17日 出發當天</div>
+        <div style="font-size: 0.9em; line-height: 1.8;">
+          <p style="margin-bottom: 5px;">⏰ A車 04:15 出發｜B車 04:40 出發</p>
+          <p style="margin-bottom: 5px;">📱 確認手機電量充滿</p>
+          <p style="margin-bottom: 5px;">🔑 家中門窗瓦斯確認關閉</p>
+          <p style="margin-bottom: 0;">🎉 帶著好心情出發！</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 注意事項 -->
+    <div class="tips-section">
+      <h3>⚠️ 重要提醒</h3>
+      <div class="tip-item">
+        <div class="tip-icon">👴</div>
+        <div class="tip-content">
+          <h4>長輩體力考量</h4>
+          <p>北野異人館是上坡區，70+長輩可在平地休息。神戶港 UMIE 有舒適休息區。京都包車時可讓長輩在車上休息。</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🌸</div>
+        <div class="tip-content">
+          <h4>櫻花季人潮</h4>
+          <p>3/20 春分連假、3/21 週六人潮最多。建議各景點提早抵達，黑門市場 9:30 前、嵐山竹林 9:00 前最佳。</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🍽️</div>
+        <div class="tip-content">
+          <h4>9人用餐需預約</h4>
+          <p>櫻花季9人團體用餐超難！Day 4 先斗町、Day 5 梅田晚餐務必提前 1-2 週訂位。</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">✈️</div>
+        <div class="tip-content">
+          <h4>樂桃航空注意</h4>
+          <p>位於第二航廈 (T2)。手提行李每人2件合計7kg，託運需確認票種是否包含。現場超重加購費用高昂。</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">📱</div>
+        <div class="tip-content">
+          <h4>必備 App</h4>
+          <p>USJ 官方 App (抽整理券)、Google Maps、乘換案內 (交通查詢)、Line 群組 (分組行動聯繫)</p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>🌸 祝旅途愉快！櫻花季大阪等你來 🌸</p>
+      <p style="margin-top: 10px; font-size: 0.9em;">製作日期：2026年2月</p>
+    </footer>
+  </div>
+</body>
+</html>
